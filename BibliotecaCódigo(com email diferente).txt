@@ -1,0 +1,91 @@
+Create database biblioteca;
+Use biblioteca;
+
+Create table livro(
+codlivro int primary key auto_increment,
+titulo varchar (255),
+autor varchar (255),
+genero varchar(255));
+
+Create table bibliotecario(
+codbibli int primary key auto_increment,
+nome varchar(255),
+datanasc date,
+cpf varchar(255) unique,
+rg varchar (255) unique,
+email varchar (255) unique,
+telefone int,
+rua varchar (255),
+num int,
+bairro varchar (255),
+cidade varchar (255),
+uf char (2),
+cep varchar (255));
+
+Create table cliente(
+codcli int primary key auto_increment,
+nome varchar(255),
+datanasc date,
+email varchar (255) unique,
+telefone int);
+
+Create table empredev(
+codd int primary key auto_increment,
+datadev date,
+dataemp date,
+codlivro int,
+codbibli int,
+codcli int,
+foreign key(codlivro) references livro(codlivro),
+foreign key(codbibli) references bibliotecario(codbibli),
+foreign key(codcli) references cliente(codcli));
+
+Insert into bibliotecario(nome, datanasc, cpf, rg, email, telefone, cidade, uf) values
+('Emanuela','21/01/2004','010.101.110-23','12.235.656-1','emanuela@gmail','922226422','Mauá','SP'),
+('Maria','23/06/1966','373.223.363-13','14.584.436-4','maria@hotmail','955526855','Mauá','SP'),
+('Ignes','11/11/1937','656.685.576-06','97.587.157-7','ignes@ig','977777777','Mauá','SP');
+
+Insert into livro(titulo, autor, genero) values
+('Mar de Tinta e Ouro: A Leitora','Trac Chee','Fantasia'),
+('Os Miseráveis','Victor Hugo','Romance'),
+('Uma Dobra no Tempo','Madeleine LEngle','Fantasia'),
+('A Megera Domada','William Shakespeare','Romance'),
+('Estilhaça-me','Tahereh Mafi','Fantasia Distópica'),
+('Destrua-me','Tahereh Mafi','Fantasia Distópica'),
+('Capitães da Areia','Jorge Amado','Romance'),
+('Como Salvar Um Herói','Suzana Enoch','Romance'),
+('Perdida','Carina Rissi','Romance de Época'),
+('Harry Potter e a Pedra Filosofal','JK Rowling','Fantasia'),
+('Percy Jackson e o Ladrão de Raios','Rick Riordan','Aventura'),
+('O visconde que Me Amava','Julia Quinn','Romance de Época'),
+('Corte de Espinhos e Rosas','Sarah J. Maas','Fantasia'),
+('Uma Dama Fora dos Padrões','Julia Quinn','Romance de Época'),
+('A Poção Secreta','Amy Alward','Fantasia'),
+('Wicked','Gregory Maguire','Fantasia'),
+('O Corcunda de Notre Dame','Victor Hugo','Romance'),
+('Orgulho e Preconceito','Jane Austen','Romance de Época'),
+('Caçadores de Trolls','Guillermo Del Toro','Aventura'),
+('Como Treinar o Seu Dragão','Cressida Cowell','Aventura'),
+('Os Segredos de Colin Bridgerton','Julia Quinn','Romance de Época'),
+('A Seleção','Kiera Cass','Romance'),
+('Anne de Green Gables','Lucy Mauad Montgomery','Romance de Época'),
+('Guardiões do Sangue','Carter Roy','Aventura'),
+('Fazendo Meu Filme','Paula Pimenta','Romance'),
+('O Acordo','Elle Kenedy','Romance'),
+('Trono de Vidro','Sarah J. Maas','Fantasia'),
+('Procura-se Um Marido','Carina Rissi','Romance'),
+('Mentira Perfeita','Carina Rissi','Romance'),
+('Namorado de Aluguel','Kasie West','Romance');
+
+Insert into cliente(nome, datanasc, email, telefone) values
+('Jake Peralta','15/05/1990','jake@gmail.com','988884568'),
+('Matteo Balsano','18/09/2002','matteo@hotmail','923219999'),
+('Katherine Sheffield','25/07/2000','kate@outlook','911589111'),
+('Clara Basset','24/03/2003','clara@etec','922035922'),
+('Marcos Turner','21/06/2003','marcos@gov','912345678'),
+('Sybilla Bridgerton','05/04/2001','billie@cps','990123456'),
+('Amy Santiago','03/01/1990','amy@bookstan','978901234'),
+('Juliette Ferrars','11/11/2003','juli@show','945678901'),
+('Ian Clarke','30/10/2001','ian@debola','923456789'),
+('Robert Carroway','08/02/2000','bit@gosto','901234567'),
+('Sofia Alonzo','27/12/2001','sofie@debd','989012345');
