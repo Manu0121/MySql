@@ -1,0 +1,39 @@
+Código Concessionária
+MariaDB [veterinaria]> create database concessionaria;
+Query OK, 1 row affected (0.003 sec)
+MariaDB [veterinaria]> use concessionaria;
+Database changed
+MariaDB [concessionaria]> create table vaiculo(
+    -> codvaiculo int primary key auto_increment,
+    -> marca varchar(50),
+    -> modelo varchar(50),
+    -> anofabricacao int,
+    -> anomodelo int,
+    -> combustivel char(1));
+Query OK, 0 rows affected (0.103 sec)
+MariaDB [concessionaria]> alter table vaiculo add column valor decimal(7,2);
+Query OK, 0 rows affected (0.106 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+MariaDB [concessionaria]> alter table vaiculo add column motor varchar(50);
+Query OK, 0 rows affected (0.079 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+MariaDB [concessionaria]> alter table vaiculo drop column motor;
+Query OK, 0 rows affected (0.187 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+MariaDB [concessionaria]> drop table vaiculo;
+Query OK, 0 rows affected (0.273 sec)
+MariaDB [concessionaria]> drop database concessionaria;
+Query OK, 0 rows affected (0.053 sec)
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| biblioteca         |
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
+| veterinaria        |
++--------------------+
+7 rows in set (0.080 sec)

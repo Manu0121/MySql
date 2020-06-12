@@ -1,0 +1,32 @@
+Código Veterinária
+MariaDB [biblioteca]> create database veterinaria;
+Query OK, 1 row affected (0.004 sec)
+MariaDB [biblioteca]> use veterinaria;
+Database changed
+MariaDB [veterinaria]> create table animal (
+    -> codanimal int primary key auto_increment,
+    -> raca varchar(255),
+    -> nome varchar(255),
+    -> ocorrencia varchar(255),
+    -> alergias varchar(255),
+    -> idade int);
+Query OK, 0 rows affected (0.195 sec)
+MariaDB [veterinaria]> show tables;
++-----------------------+
+| Tables_in_veterinaria |
++-----------------------+
+| animal                |
++-----------------------+
+1 row in set (0.001 sec)
+MariaDB [veterinaria]> describe animal;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| codanimal  | int(11)      | NO   | PRI | NULL    | auto_increment |
+| raca       | varchar(255) | YES  |     | NULL    |                |
+| nome       | varchar(255) | YES  |     | NULL    |                |
+| ocorrencia | varchar(255) | YES  |     | NULL    |                |
+| alergias   | varchar(255) | YES  |     | NULL    |                |
+| idade      | int(11)      | YES  |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+6 rows in set (0.057 sec)
